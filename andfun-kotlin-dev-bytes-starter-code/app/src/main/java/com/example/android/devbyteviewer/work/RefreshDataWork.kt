@@ -28,6 +28,10 @@ class RefreshDataWorker(appContext: Context, params: WorkerParameters):Coroutine
     /**
      * A coroutine-friendly method to do your work.
      */
+    companion object {
+        const val WORK_NAME = "RefreshDataWorker"
+    }
+
     override suspend fun doWork(): Result {
         val database = getDatabase(applicationContext)
         val repository = VideosRepository(database)
